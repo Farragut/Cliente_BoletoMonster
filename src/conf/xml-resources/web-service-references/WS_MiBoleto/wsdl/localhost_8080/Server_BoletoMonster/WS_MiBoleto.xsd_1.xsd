@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicio.reaper.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicio.reaper.com/">
+
+<xs:element name="escenario" type="tns:escenario"/>
+
+<xs:element name="espectaculo" type="tns:espectaculo"/>
+
+<xs:element name="espectaculoCompleto" type="tns:espectaculoCompleto"/>
+
+<xs:element name="espectaculoCompletoResponse" type="tns:espectaculoCompletoResponse"/>
+
+<xs:element name="espectaculolocalidadescenario" type="tns:espectaculolocalidadescenario"/>
+
+<xs:element name="espectaculoprograma" type="tns:espectaculoprograma"/>
+
+<xs:element name="formapago" type="tns:formapago"/>
+
+<xs:element name="listFormaPago" type="tns:listFormaPago"/>
+
+<xs:element name="listFormaPagoResponse" type="tns:listFormaPagoResponse"/>
+
+<xs:element name="localidad" type="tns:localidad"/>
+
+<xs:element name="localidadCompleto" type="tns:localidadCompleto"/>
+
+<xs:element name="localidadCompletoResponse" type="tns:localidadCompletoResponse"/>
+
+<xs:complexType name="espectaculoCompleto">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="espectaculoCompletoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:espectaculolocalidadescenario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectaculolocalidadescenario">
+<xs:sequence>
+<xs:element name="escenario" type="tns:escenario" minOccurs="0"/>
+<xs:element name="espectaculolocalidadescenarioPK" type="tns:espectaculolocalidadescenarioPK" minOccurs="0"/>
+<xs:element name="espectaculoprograma" type="tns:espectaculoprograma" minOccurs="0"/>
+<xs:element name="locEscCapacidad" type="xs:int"/>
+<xs:element name="locEscPrecio" type="xs:float"/>
+<xs:element name="localidad" type="tns:localidad" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="escenario">
+<xs:sequence>
+<xs:element name="escCapacidad" type="xs:int"/>
+<xs:element name="escId" type="xs:int" minOccurs="0"/>
+<xs:element name="escNombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectaculolocalidadescenarioPK">
+<xs:sequence>
+<xs:element name="escId" type="xs:int"/>
+<xs:element name="espEscId" type="xs:int"/>
+<xs:element name="locId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectaculoprograma">
+<xs:sequence>
+<xs:element name="espEscDisponibilidad" type="xs:int"/>
+<xs:element name="espEscFecha" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="espEscHora" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="espEscId" type="xs:int" minOccurs="0"/>
+<xs:element name="espEscPrecio" type="xs:float"/>
+<xs:element name="espId" type="tns:espectaculo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectaculo">
+<xs:sequence>
+<xs:element name="espId" type="xs:int" minOccurs="0"/>
+<xs:element name="espNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="espTipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="localidad">
+<xs:sequence>
+<xs:element name="locId" type="xs:int" minOccurs="0"/>
+<xs:element name="locNombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="localidadCompleto">
+<xs:sequence>
+<xs:element name="espId" type="xs:int"/>
+<xs:element name="escId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="localidadCompletoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:espectaculolocalidadescenario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listFormaPago">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listFormaPagoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:formapago" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="formapago">
+<xs:sequence>
+<xs:element name="fpDescripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fpId" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
