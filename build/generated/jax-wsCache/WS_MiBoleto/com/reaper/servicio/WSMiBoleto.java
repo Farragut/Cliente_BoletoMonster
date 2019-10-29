@@ -28,6 +28,18 @@ public interface WSMiBoleto {
     /**
      * 
      * @return
+     *     returns java.util.List<com.reaper.servicio.Cliente>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listCliente", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListCliente")
+    @ResponseWrapper(localName = "listClienteResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListClienteResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/listClienteRequest", output = "http://servicio.reaper.com/WS_MiBoleto/listClienteResponse")
+    public List<Cliente> listCliente();
+
+    /**
+     * 
+     * @return
      *     returns java.util.List<com.reaper.servicio.Espectaculolocalidadescenario>
      */
     @WebMethod
@@ -66,5 +78,17 @@ public interface WSMiBoleto {
         int espId,
         @WebParam(name = "escId", targetNamespace = "")
         int escId);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<com.reaper.servicio.Vendedor>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listVendedor", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListVendedor")
+    @ResponseWrapper(localName = "listVendedorResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListVendedorResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/listVendedorRequest", output = "http://servicio.reaper.com/WS_MiBoleto/listVendedorResponse")
+    public List<Vendedor> listVendedor();
 
 }

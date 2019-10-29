@@ -4,6 +4,12 @@
 <xsd:import namespace="http://servicio.reaper.com/" schemaLocation="http://localhost:8080/Server_BoletoMonster/WS_MiBoleto?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="listCliente">
+<part name="parameters" element="tns:listCliente"/>
+</message>
+<message name="listClienteResponse">
+<part name="parameters" element="tns:listClienteResponse"/>
+</message>
 <message name="espectaculoCompleto">
 <part name="parameters" element="tns:espectaculoCompleto"/>
 </message>
@@ -22,7 +28,17 @@
 <message name="localidadCompletoResponse">
 <part name="parameters" element="tns:localidadCompletoResponse"/>
 </message>
+<message name="listVendedor">
+<part name="parameters" element="tns:listVendedor"/>
+</message>
+<message name="listVendedorResponse">
+<part name="parameters" element="tns:listVendedorResponse"/>
+</message>
 <portType name="WS_MiBoleto">
+<operation name="listCliente">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listClienteRequest" message="tns:listCliente"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listClienteResponse" message="tns:listClienteResponse"/>
+</operation>
 <operation name="espectaculoCompleto">
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espectaculoCompletoRequest" message="tns:espectaculoCompleto"/>
 <output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espectaculoCompletoResponse" message="tns:espectaculoCompletoResponse"/>
@@ -35,9 +51,22 @@
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/localidadCompletoRequest" message="tns:localidadCompleto"/>
 <output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/localidadCompletoResponse" message="tns:localidadCompletoResponse"/>
 </operation>
+<operation name="listVendedor">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listVendedorRequest" message="tns:listVendedor"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listVendedorResponse" message="tns:listVendedorResponse"/>
+</operation>
 </portType>
 <binding name="WS_MiBoletoPortBinding" type="tns:WS_MiBoleto">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="listCliente">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="espectaculoCompleto">
 <soap:operation soapAction=""/>
 <input>
@@ -57,6 +86,15 @@
 </output>
 </operation>
 <operation name="localidadCompleto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listVendedor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

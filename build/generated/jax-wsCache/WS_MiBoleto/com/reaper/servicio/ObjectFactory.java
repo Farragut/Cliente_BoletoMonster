@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Cliente_QNAME = new QName("http://servicio.reaper.com/", "cliente");
     private final static QName _Escenario_QNAME = new QName("http://servicio.reaper.com/", "escenario");
     private final static QName _Espectaculo_QNAME = new QName("http://servicio.reaper.com/", "espectaculo");
     private final static QName _EspectaculoCompleto_QNAME = new QName("http://servicio.reaper.com/", "espectaculoCompleto");
@@ -31,17 +32,30 @@ public class ObjectFactory {
     private final static QName _Espectaculolocalidadescenario_QNAME = new QName("http://servicio.reaper.com/", "espectaculolocalidadescenario");
     private final static QName _Espectaculoprograma_QNAME = new QName("http://servicio.reaper.com/", "espectaculoprograma");
     private final static QName _Formapago_QNAME = new QName("http://servicio.reaper.com/", "formapago");
+    private final static QName _ListCliente_QNAME = new QName("http://servicio.reaper.com/", "listCliente");
+    private final static QName _ListClienteResponse_QNAME = new QName("http://servicio.reaper.com/", "listClienteResponse");
     private final static QName _ListFormaPago_QNAME = new QName("http://servicio.reaper.com/", "listFormaPago");
     private final static QName _ListFormaPagoResponse_QNAME = new QName("http://servicio.reaper.com/", "listFormaPagoResponse");
+    private final static QName _ListVendedor_QNAME = new QName("http://servicio.reaper.com/", "listVendedor");
+    private final static QName _ListVendedorResponse_QNAME = new QName("http://servicio.reaper.com/", "listVendedorResponse");
     private final static QName _Localidad_QNAME = new QName("http://servicio.reaper.com/", "localidad");
     private final static QName _LocalidadCompleto_QNAME = new QName("http://servicio.reaper.com/", "localidadCompleto");
     private final static QName _LocalidadCompletoResponse_QNAME = new QName("http://servicio.reaper.com/", "localidadCompletoResponse");
+    private final static QName _Vendedor_QNAME = new QName("http://servicio.reaper.com/", "vendedor");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.reaper.servicio
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Cliente }
+     * 
+     */
+    public Cliente createCliente() {
+        return new Cliente();
     }
 
     /**
@@ -101,6 +115,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListCliente }
+     * 
+     */
+    public ListCliente createListCliente() {
+        return new ListCliente();
+    }
+
+    /**
+     * Create an instance of {@link ListClienteResponse }
+     * 
+     */
+    public ListClienteResponse createListClienteResponse() {
+        return new ListClienteResponse();
+    }
+
+    /**
      * Create an instance of {@link ListFormaPago }
      * 
      */
@@ -114,6 +144,22 @@ public class ObjectFactory {
      */
     public ListFormaPagoResponse createListFormaPagoResponse() {
         return new ListFormaPagoResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListVendedor }
+     * 
+     */
+    public ListVendedor createListVendedor() {
+        return new ListVendedor();
+    }
+
+    /**
+     * Create an instance of {@link ListVendedorResponse }
+     * 
+     */
+    public ListVendedorResponse createListVendedorResponse() {
+        return new ListVendedorResponse();
     }
 
     /**
@@ -141,11 +187,28 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Vendedor }
+     * 
+     */
+    public Vendedor createVendedor() {
+        return new Vendedor();
+    }
+
+    /**
      * Create an instance of {@link EspectaculolocalidadescenarioPK }
      * 
      */
     public EspectaculolocalidadescenarioPK createEspectaculolocalidadescenarioPK() {
         return new EspectaculolocalidadescenarioPK();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Cliente }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "cliente")
+    public JAXBElement<Cliente> createCliente(Cliente value) {
+        return new JAXBElement<Cliente>(_Cliente_QNAME, Cliente.class, null, value);
     }
 
     /**
@@ -212,6 +275,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListCliente }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "listCliente")
+    public JAXBElement<ListCliente> createListCliente(ListCliente value) {
+        return new JAXBElement<ListCliente>(_ListCliente_QNAME, ListCliente.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListClienteResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "listClienteResponse")
+    public JAXBElement<ListClienteResponse> createListClienteResponse(ListClienteResponse value) {
+        return new JAXBElement<ListClienteResponse>(_ListClienteResponse_QNAME, ListClienteResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListFormaPago }{@code >}}
      * 
      */
@@ -227,6 +308,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "listFormaPagoResponse")
     public JAXBElement<ListFormaPagoResponse> createListFormaPagoResponse(ListFormaPagoResponse value) {
         return new JAXBElement<ListFormaPagoResponse>(_ListFormaPagoResponse_QNAME, ListFormaPagoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListVendedor }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "listVendedor")
+    public JAXBElement<ListVendedor> createListVendedor(ListVendedor value) {
+        return new JAXBElement<ListVendedor>(_ListVendedor_QNAME, ListVendedor.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListVendedorResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "listVendedorResponse")
+    public JAXBElement<ListVendedorResponse> createListVendedorResponse(ListVendedorResponse value) {
+        return new JAXBElement<ListVendedorResponse>(_ListVendedorResponse_QNAME, ListVendedorResponse.class, null, value);
     }
 
     /**
@@ -254,6 +353,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "localidadCompletoResponse")
     public JAXBElement<LocalidadCompletoResponse> createLocalidadCompletoResponse(LocalidadCompletoResponse value) {
         return new JAXBElement<LocalidadCompletoResponse>(_LocalidadCompletoResponse_QNAME, LocalidadCompletoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Vendedor }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "vendedor")
+    public JAXBElement<Vendedor> createVendedor(Vendedor value) {
+        return new JAXBElement<Vendedor>(_Vendedor_QNAME, Vendedor.class, null, value);
     }
 
 }

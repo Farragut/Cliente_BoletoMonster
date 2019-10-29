@@ -28,5 +28,18 @@ public class ControladorWS {
         com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
         return port.listFormaPago();
     }
-    //fffhjj
+
+    public static java.util.List<com.reaper.servicio.Vendedor> listVendedor() {
+        com.reaper.servicio.WSMiBoleto_Service service = new com.reaper.servicio.WSMiBoleto_Service();
+        com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
+        return port.listVendedor();
+    }
+
+    public static java.util.List<com.reaper.servicio.Cliente> listCliente() {
+        com.reaper.servicio.WSMiBoleto_Service service = new com.reaper.servicio.WSMiBoleto_Service();
+        com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
+        return port.listCliente();
+    }
+    
+    
 }

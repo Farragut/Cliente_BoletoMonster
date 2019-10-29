@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicio.reaper.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicio.reaper.com/">
 
+<xs:element name="cliente" type="tns:cliente"/>
+
 <xs:element name="escenario" type="tns:escenario"/>
 
 <xs:element name="espectaculo" type="tns:espectaculo"/>
@@ -14,15 +16,25 @@
 
 <xs:element name="formapago" type="tns:formapago"/>
 
+<xs:element name="listCliente" type="tns:listCliente"/>
+
+<xs:element name="listClienteResponse" type="tns:listClienteResponse"/>
+
 <xs:element name="listFormaPago" type="tns:listFormaPago"/>
 
 <xs:element name="listFormaPagoResponse" type="tns:listFormaPagoResponse"/>
+
+<xs:element name="listVendedor" type="tns:listVendedor"/>
+
+<xs:element name="listVendedorResponse" type="tns:listVendedorResponse"/>
 
 <xs:element name="localidad" type="tns:localidad"/>
 
 <xs:element name="localidadCompleto" type="tns:localidadCompleto"/>
 
 <xs:element name="localidadCompletoResponse" type="tns:localidadCompletoResponse"/>
+
+<xs:element name="vendedor" type="tns:vendedor"/>
 
 <xs:complexType name="espectaculoCompleto">
 <xs:sequence/>
@@ -97,6 +109,44 @@
 <xs:complexType name="localidadCompletoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:espectaculolocalidadescenario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listCliente">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listClienteResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cliente">
+<xs:sequence>
+<xs:element name="cliCedula" type="xs:string" minOccurs="0"/>
+<xs:element name="cliDireccion" type="xs:string" minOccurs="0"/>
+<xs:element name="cliId" type="xs:int" minOccurs="0"/>
+<xs:element name="cliNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="cliTelefono" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listVendedor">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listVendedorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:vendedor" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="vendedor">
+<xs:sequence>
+<xs:element name="venCedula" type="xs:string" minOccurs="0"/>
+<xs:element name="venId" type="xs:int" minOccurs="0"/>
+<xs:element name="venNombre" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

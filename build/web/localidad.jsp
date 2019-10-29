@@ -4,6 +4,8 @@
     Author     : mfnav
 --%>
 
+<%@page import="com.reaper.servicio.Cliente"%>
+<%@page import="com.reaper.servicio.Vendedor"%>
 <%@page import="com.reaper.servicio.Formapago"%>
 <%@page import="com.reaper.servicio.Espectaculolocalidadescenario"%>
 <%@page import="com.reaper.controlador.ControladorWS"%>
@@ -29,13 +31,32 @@
                     <div class="container mt-4 col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <label>Cédula [Vendedor]</label>
-                                <input type="number" name="cedVen" class="form-control" pattern = "[0-9]">
+                                <label>Vendedor</label>
                                 <br>
-                                <label>Cédula [Cliente]</label>
-                                <input type="number" name="cedCli" class="form-control" pattern = "[0-9]">
+                                <select class="form-control">
+                                    <option value="" disabled selected>Seleccione el vendedor</option>
+                                    <%
+                                        ControladorWS cont = new ControladorWS();
+                                        List<Vendedor> datosVen = cont.listVendedor();
+                                        for (Vendedor e : datosVen) {
+                                    %>
 
+                                    <option value=<%= e.getVenId() %>><%= e.getVenNombre() %></option>
+                                    <% }%>
+                                </select>
+                                <br>
+                                <label>Cliente</label>
+                                <br>
+                                <select class="form-control">
+                                    <option value="" disabled selected>Seleccione el cliente</option>
+                                    <%
+                                        List<Cliente> datosCli = cont.listCliente();
+                                        for (Cliente e : datosCli) {
+                                    %>
 
+                                    <option value=<%= e.getCliId() %>><%= e.getCliNombre() %></option>
+                                    <% }%>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -55,7 +76,6 @@
                         </thead>
                         <tbody>
                             <%
-                                ControladorWS cont = new ControladorWS();
                                 List<Espectaculolocalidadescenario> datosEE = cont.localidadCompleto(Integer.parseInt(request.getParameter("espId")), Integer.parseInt(request.getParameter("escId")));
                                 for (Espectaculolocalidadescenario e : datosEE) {
                                     if (e.getLocEscCapacidad() > 0) {
