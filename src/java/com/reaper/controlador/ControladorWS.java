@@ -28,5 +28,5 @@ public class ControladorWS {
         com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
         return port.listFormaPago();
     }
-    
+    //fffhjj
 }
