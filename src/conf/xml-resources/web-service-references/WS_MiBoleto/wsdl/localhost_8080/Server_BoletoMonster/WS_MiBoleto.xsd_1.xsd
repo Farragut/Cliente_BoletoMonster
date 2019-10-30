@@ -2,9 +2,25 @@
 
 <xs:element name="cliente" type="tns:cliente"/>
 
+<xs:element name="clienteById" type="tns:clienteById"/>
+
+<xs:element name="clienteByIdResponse" type="tns:clienteByIdResponse"/>
+
 <xs:element name="escenario" type="tns:escenario"/>
 
+<xs:element name="escenarioById" type="tns:escenarioById"/>
+
+<xs:element name="escenarioByIdResponse" type="tns:escenarioByIdResponse"/>
+
+<xs:element name="espProById" type="tns:espProById"/>
+
+<xs:element name="espProByIdResponse" type="tns:espProByIdResponse"/>
+
 <xs:element name="espectaculo" type="tns:espectaculo"/>
+
+<xs:element name="espectaculoById" type="tns:espectaculoById"/>
+
+<xs:element name="espectaculoByIdResponse" type="tns:espectaculoByIdResponse"/>
 
 <xs:element name="espectaculoCompleto" type="tns:espectaculoCompleto"/>
 
@@ -13,6 +29,10 @@
 <xs:element name="espectaculolocalidadescenario" type="tns:espectaculolocalidadescenario"/>
 
 <xs:element name="espectaculoprograma" type="tns:espectaculoprograma"/>
+
+<xs:element name="formaPagoById" type="tns:formaPagoById"/>
+
+<xs:element name="formaPagoByIdResponse" type="tns:formaPagoByIdResponse"/>
 
 <xs:element name="formapago" type="tns:formapago"/>
 
@@ -30,11 +50,98 @@
 
 <xs:element name="localidad" type="tns:localidad"/>
 
+<xs:element name="localidadById" type="tns:localidadById"/>
+
+<xs:element name="localidadByIdResponse" type="tns:localidadByIdResponse"/>
+
 <xs:element name="localidadCompleto" type="tns:localidadCompleto"/>
 
 <xs:element name="localidadCompletoResponse" type="tns:localidadCompletoResponse"/>
 
 <xs:element name="vendedor" type="tns:vendedor"/>
+
+<xs:element name="vendedorById" type="tns:vendedorById"/>
+
+<xs:element name="vendedorByIdResponse" type="tns:vendedorByIdResponse"/>
+
+<xs:complexType name="espectaculoById">
+<xs:sequence>
+<xs:element name="espId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectaculoByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:espectaculo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectaculo">
+<xs:sequence>
+<xs:element name="espId" type="xs:int" minOccurs="0"/>
+<xs:element name="espNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="espTipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="escenarioById">
+<xs:sequence>
+<xs:element name="escId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="escenarioByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:escenario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="escenario">
+<xs:sequence>
+<xs:element name="escCapacidad" type="xs:int"/>
+<xs:element name="escId" type="xs:int" minOccurs="0"/>
+<xs:element name="escNombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="vendedorById">
+<xs:sequence>
+<xs:element name="venId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="vendedorByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:vendedor" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="vendedor">
+<xs:sequence>
+<xs:element name="venCedula" type="xs:string" minOccurs="0"/>
+<xs:element name="venId" type="xs:int" minOccurs="0"/>
+<xs:element name="venNombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="formaPagoById">
+<xs:sequence>
+<xs:element name="fpId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="formaPagoByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:formapago" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="formapago">
+<xs:sequence>
+<xs:element name="fpDescripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fpId" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="espectaculoCompleto">
 <xs:sequence/>
@@ -57,14 +164,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="escenario">
-<xs:sequence>
-<xs:element name="escCapacidad" type="xs:int"/>
-<xs:element name="escId" type="xs:int" minOccurs="0"/>
-<xs:element name="escNombre" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="espectaculolocalidadescenarioPK">
 <xs:sequence>
 <xs:element name="escId" type="xs:int"/>
@@ -81,14 +180,6 @@
 <xs:element name="espEscId" type="xs:int" minOccurs="0"/>
 <xs:element name="espEscPrecio" type="xs:float"/>
 <xs:element name="espId" type="tns:espectaculo" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="espectaculo">
-<xs:sequence>
-<xs:element name="espId" type="xs:int" minOccurs="0"/>
-<xs:element name="espNombre" type="xs:string" minOccurs="0"/>
-<xs:element name="espTipo" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -132,6 +223,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="localidadById">
+<xs:sequence>
+<xs:element name="locId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="localidadByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:localidad" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="listVendedor">
 <xs:sequence/>
 </xs:complexType>
@@ -139,14 +242,6 @@
 <xs:complexType name="listVendedorResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:vendedor" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="vendedor">
-<xs:sequence>
-<xs:element name="venCedula" type="xs:string" minOccurs="0"/>
-<xs:element name="venId" type="xs:int" minOccurs="0"/>
-<xs:element name="venNombre" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -160,10 +255,27 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="formapago">
+<xs:complexType name="clienteById">
 <xs:sequence>
-<xs:element name="fpDescripcion" type="xs:string" minOccurs="0"/>
-<xs:element name="fpId" type="xs:int" minOccurs="0"/>
+<xs:element name="cliId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="clienteByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espProById">
+<xs:sequence>
+<xs:element name="espProId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espProByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:espectaculoprograma" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

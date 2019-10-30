@@ -4,12 +4,6 @@
 <xsd:import namespace="http://servicio.reaper.com/" schemaLocation="http://localhost:8080/Server_BoletoMonster/WS_MiBoleto?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="listCliente">
-<part name="parameters" element="tns:listCliente"/>
-</message>
-<message name="listClienteResponse">
-<part name="parameters" element="tns:listClienteResponse"/>
-</message>
 <message name="espectaculoCompleto">
 <part name="parameters" element="tns:espectaculoCompleto"/>
 </message>
@@ -22,11 +16,11 @@
 <message name="listFormaPagoResponse">
 <part name="parameters" element="tns:listFormaPagoResponse"/>
 </message>
-<message name="localidadCompleto">
-<part name="parameters" element="tns:localidadCompleto"/>
+<message name="listCliente">
+<part name="parameters" element="tns:listCliente"/>
 </message>
-<message name="localidadCompletoResponse">
-<part name="parameters" element="tns:localidadCompletoResponse"/>
+<message name="listClienteResponse">
+<part name="parameters" element="tns:listClienteResponse"/>
 </message>
 <message name="listVendedor">
 <part name="parameters" element="tns:listVendedor"/>
@@ -34,11 +28,55 @@
 <message name="listVendedorResponse">
 <part name="parameters" element="tns:listVendedorResponse"/>
 </message>
+<message name="localidadById">
+<part name="parameters" element="tns:localidadById"/>
+</message>
+<message name="localidadByIdResponse">
+<part name="parameters" element="tns:localidadByIdResponse"/>
+</message>
+<message name="escenarioById">
+<part name="parameters" element="tns:escenarioById"/>
+</message>
+<message name="escenarioByIdResponse">
+<part name="parameters" element="tns:escenarioByIdResponse"/>
+</message>
+<message name="clienteById">
+<part name="parameters" element="tns:clienteById"/>
+</message>
+<message name="clienteByIdResponse">
+<part name="parameters" element="tns:clienteByIdResponse"/>
+</message>
+<message name="espectaculoById">
+<part name="parameters" element="tns:espectaculoById"/>
+</message>
+<message name="espectaculoByIdResponse">
+<part name="parameters" element="tns:espectaculoByIdResponse"/>
+</message>
+<message name="localidadCompleto">
+<part name="parameters" element="tns:localidadCompleto"/>
+</message>
+<message name="localidadCompletoResponse">
+<part name="parameters" element="tns:localidadCompletoResponse"/>
+</message>
+<message name="espProById">
+<part name="parameters" element="tns:espProById"/>
+</message>
+<message name="espProByIdResponse">
+<part name="parameters" element="tns:espProByIdResponse"/>
+</message>
+<message name="vendedorById">
+<part name="parameters" element="tns:vendedorById"/>
+</message>
+<message name="vendedorByIdResponse">
+<part name="parameters" element="tns:vendedorByIdResponse"/>
+</message>
+<message name="formaPagoById">
+<part name="parameters" element="tns:formaPagoById"/>
+</message>
+<message name="formaPagoByIdResponse">
+<part name="parameters" element="tns:formaPagoByIdResponse"/>
+</message>
 <portType name="WS_MiBoleto">
-<operation name="listCliente">
-<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listClienteRequest" message="tns:listCliente"/>
-<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listClienteResponse" message="tns:listClienteResponse"/>
-</operation>
 <operation name="espectaculoCompleto">
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espectaculoCompletoRequest" message="tns:espectaculoCompleto"/>
 <output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espectaculoCompletoResponse" message="tns:espectaculoCompletoResponse"/>
@@ -47,26 +85,49 @@
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listFormaPagoRequest" message="tns:listFormaPago"/>
 <output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listFormaPagoResponse" message="tns:listFormaPagoResponse"/>
 </operation>
-<operation name="localidadCompleto">
-<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/localidadCompletoRequest" message="tns:localidadCompleto"/>
-<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/localidadCompletoResponse" message="tns:localidadCompletoResponse"/>
+<operation name="listCliente">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listClienteRequest" message="tns:listCliente"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listClienteResponse" message="tns:listClienteResponse"/>
 </operation>
 <operation name="listVendedor">
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listVendedorRequest" message="tns:listVendedor"/>
 <output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listVendedorResponse" message="tns:listVendedorResponse"/>
 </operation>
+<operation name="localidadById">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/localidadByIdRequest" message="tns:localidadById"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/localidadByIdResponse" message="tns:localidadByIdResponse"/>
+</operation>
+<operation name="escenarioById">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/escenarioByIdRequest" message="tns:escenarioById"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/escenarioByIdResponse" message="tns:escenarioByIdResponse"/>
+</operation>
+<operation name="clienteById">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/clienteByIdRequest" message="tns:clienteById"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/clienteByIdResponse" message="tns:clienteByIdResponse"/>
+</operation>
+<operation name="espectaculoById">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espectaculoByIdRequest" message="tns:espectaculoById"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espectaculoByIdResponse" message="tns:espectaculoByIdResponse"/>
+</operation>
+<operation name="localidadCompleto">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/localidadCompletoRequest" message="tns:localidadCompleto"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/localidadCompletoResponse" message="tns:localidadCompletoResponse"/>
+</operation>
+<operation name="espProById">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espProByIdRequest" message="tns:espProById"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espProByIdResponse" message="tns:espProByIdResponse"/>
+</operation>
+<operation name="vendedorById">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/vendedorByIdRequest" message="tns:vendedorById"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/vendedorByIdResponse" message="tns:vendedorByIdResponse"/>
+</operation>
+<operation name="formaPagoById">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/formaPagoByIdRequest" message="tns:formaPagoById"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/formaPagoByIdResponse" message="tns:formaPagoByIdResponse"/>
+</operation>
 </portType>
 <binding name="WS_MiBoletoPortBinding" type="tns:WS_MiBoleto">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="listCliente">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="espectaculoCompleto">
 <soap:operation soapAction=""/>
 <input>
@@ -85,7 +146,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="localidadCompleto">
+<operation name="listCliente">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -95,6 +156,78 @@
 </output>
 </operation>
 <operation name="listVendedor">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="localidadById">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="escenarioById">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="clienteById">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="espectaculoById">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="localidadCompleto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="espProById">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="vendedorById">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="formaPagoById">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

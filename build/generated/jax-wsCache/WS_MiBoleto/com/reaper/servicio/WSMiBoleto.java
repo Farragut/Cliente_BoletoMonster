@@ -28,18 +28,6 @@ public interface WSMiBoleto {
     /**
      * 
      * @return
-     *     returns java.util.List<com.reaper.servicio.Cliente>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listCliente", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListCliente")
-    @ResponseWrapper(localName = "listClienteResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListClienteResponse")
-    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/listClienteRequest", output = "http://servicio.reaper.com/WS_MiBoleto/listClienteResponse")
-    public List<Cliente> listCliente();
-
-    /**
-     * 
-     * @return
      *     returns java.util.List<com.reaper.servicio.Espectaculolocalidadescenario>
      */
     @WebMethod
@@ -63,6 +51,90 @@ public interface WSMiBoleto {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<com.reaper.servicio.Cliente>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listCliente", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListCliente")
+    @ResponseWrapper(localName = "listClienteResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListClienteResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/listClienteRequest", output = "http://servicio.reaper.com/WS_MiBoleto/listClienteResponse")
+    public List<Cliente> listCliente();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<com.reaper.servicio.Vendedor>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listVendedor", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListVendedor")
+    @ResponseWrapper(localName = "listVendedorResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListVendedorResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/listVendedorRequest", output = "http://servicio.reaper.com/WS_MiBoleto/listVendedorResponse")
+    public List<Vendedor> listVendedor();
+
+    /**
+     * 
+     * @param locId
+     * @return
+     *     returns com.reaper.servicio.Localidad
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "localidadById", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.LocalidadById")
+    @ResponseWrapper(localName = "localidadByIdResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.LocalidadByIdResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/localidadByIdRequest", output = "http://servicio.reaper.com/WS_MiBoleto/localidadByIdResponse")
+    public Localidad localidadById(
+        @WebParam(name = "locId", targetNamespace = "")
+        int locId);
+
+    /**
+     * 
+     * @param escId
+     * @return
+     *     returns com.reaper.servicio.Escenario
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "escenarioById", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.EscenarioById")
+    @ResponseWrapper(localName = "escenarioByIdResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.EscenarioByIdResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/escenarioByIdRequest", output = "http://servicio.reaper.com/WS_MiBoleto/escenarioByIdResponse")
+    public Escenario escenarioById(
+        @WebParam(name = "escId", targetNamespace = "")
+        int escId);
+
+    /**
+     * 
+     * @param cliId
+     * @return
+     *     returns com.reaper.servicio.Cliente
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "clienteById", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ClienteById")
+    @ResponseWrapper(localName = "clienteByIdResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ClienteByIdResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/clienteByIdRequest", output = "http://servicio.reaper.com/WS_MiBoleto/clienteByIdResponse")
+    public Cliente clienteById(
+        @WebParam(name = "cliId", targetNamespace = "")
+        int cliId);
+
+    /**
+     * 
+     * @param espId
+     * @return
+     *     returns com.reaper.servicio.Espectaculo
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "espectaculoById", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.EspectaculoById")
+    @ResponseWrapper(localName = "espectaculoByIdResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.EspectaculoByIdResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/espectaculoByIdRequest", output = "http://servicio.reaper.com/WS_MiBoleto/espectaculoByIdResponse")
+    public Espectaculo espectaculoById(
+        @WebParam(name = "espId", targetNamespace = "")
+        int espId);
+
+    /**
+     * 
      * @param escId
      * @param espId
      * @return
@@ -81,14 +153,47 @@ public interface WSMiBoleto {
 
     /**
      * 
+     * @param espProId
      * @return
-     *     returns java.util.List<com.reaper.servicio.Vendedor>
+     *     returns com.reaper.servicio.Espectaculoprograma
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listVendedor", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListVendedor")
-    @ResponseWrapper(localName = "listVendedorResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ListVendedorResponse")
-    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/listVendedorRequest", output = "http://servicio.reaper.com/WS_MiBoleto/listVendedorResponse")
-    public List<Vendedor> listVendedor();
+    @RequestWrapper(localName = "espProById", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.EspProById")
+    @ResponseWrapper(localName = "espProByIdResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.EspProByIdResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/espProByIdRequest", output = "http://servicio.reaper.com/WS_MiBoleto/espProByIdResponse")
+    public Espectaculoprograma espProById(
+        @WebParam(name = "espProId", targetNamespace = "")
+        int espProId);
+
+    /**
+     * 
+     * @param venId
+     * @return
+     *     returns com.reaper.servicio.Vendedor
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "vendedorById", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.VendedorById")
+    @ResponseWrapper(localName = "vendedorByIdResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.VendedorByIdResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/vendedorByIdRequest", output = "http://servicio.reaper.com/WS_MiBoleto/vendedorByIdResponse")
+    public Vendedor vendedorById(
+        @WebParam(name = "venId", targetNamespace = "")
+        int venId);
+
+    /**
+     * 
+     * @param fpId
+     * @return
+     *     returns com.reaper.servicio.Formapago
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "formaPagoById", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.FormaPagoById")
+    @ResponseWrapper(localName = "formaPagoByIdResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.FormaPagoByIdResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/formaPagoByIdRequest", output = "http://servicio.reaper.com/WS_MiBoleto/formaPagoByIdResponse")
+    public Formapago formaPagoById(
+        @WebParam(name = "fpId", targetNamespace = "")
+        int fpId);
 
 }
