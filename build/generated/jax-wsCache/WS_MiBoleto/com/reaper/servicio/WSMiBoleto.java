@@ -41,6 +41,18 @@ public interface WSMiBoleto {
     /**
      * 
      * @return
+     *     returns java.util.List<com.reaper.servicio.Factura>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getFactura", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.GetFactura")
+    @ResponseWrapper(localName = "getFacturaResponse", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.GetFacturaResponse")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/getFacturaRequest", output = "http://servicio.reaper.com/WS_MiBoleto/getFacturaResponse")
+    public List<Factura> getFactura();
+
+    /**
+     * 
+     * @return
      *     returns java.util.List<com.reaper.servicio.Formapago>
      */
     @WebMethod
@@ -235,5 +247,26 @@ public interface WSMiBoleto {
         String locId,
         @WebParam(name = "espId", targetNamespace = "")
         String espId);
+
+    /**
+     * 
+     * @param total
+     * @param bolId
+     * @param iva
+     * @param facId
+     */
+    @WebMethod
+    @Oneway
+    @RequestWrapper(localName = "insertNewDetalle", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.InsertNewDetalle")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/insertNewDetalle")
+    public void insertNewDetalle(
+        @WebParam(name = "facId", targetNamespace = "")
+        String facId,
+        @WebParam(name = "bolId", targetNamespace = "")
+        String bolId,
+        @WebParam(name = "iva", targetNamespace = "")
+        String iva,
+        @WebParam(name = "total", targetNamespace = "")
+        String total);
 
 }

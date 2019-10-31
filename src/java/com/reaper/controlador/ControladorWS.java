@@ -103,7 +103,16 @@ public class ControladorWS {
         port.modificarLocalidad(bolRest, escId, locId, espId);
     }
 
-    
-    
-    
+    public static void insertNewDetalle(java.lang.String facId, java.lang.String bolId, java.lang.String iva, java.lang.String total) {
+        com.reaper.servicio.WSMiBoleto_Service service = new com.reaper.servicio.WSMiBoleto_Service();
+        com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
+        port.insertNewDetalle(facId, bolId, iva, total);
+    }    
+
+    public static java.util.List<com.reaper.servicio.Factura> getFactura() {
+        com.reaper.servicio.WSMiBoleto_Service service = new com.reaper.servicio.WSMiBoleto_Service();
+        com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
+        return port.getFactura();
+    }
+
 }

@@ -4,6 +4,8 @@
     Author     : mfnav
 --%>
 
+<%@page import="com.reaper.servicio.Factura"%>
+<%@page import="java.util.List"%>
 <%@page import="javax.xml.datatype.DatatypeFactory"%>
 <%@page import="javax.xml.datatype.XMLGregorianCalendar"%>
 <%@page import="java.util.Date"%>
@@ -39,7 +41,6 @@
             cli = cont.clienteById(Integer.parseInt(request.getParameter("optCli")));
             fp = cont.formaPagoById(Integer.parseInt(request.getParameter("optfp")));
         %>
-
         <div class="container mt-4">
             <div class="card">
                 <div class="card-header">
@@ -118,17 +119,27 @@
                 </div>
 
             </div>
+            <br>
+            <a href="index.jsp" class="btn btn-danger">Salir</a>
         </div>
-
         <script type="text/javascript">
             function myFunction() {
             <%
-//              cont.escribirFactura(request.getParameter("optCli"), request.getParameter("optfp"), request.getParameter("optVen"));
+                int facId = 0;
+                cont.escribirFactura(request.getParameter("optCli"), request.getParameter("optfp"), request.getParameter("optVen"));
+                List<Factura> lFac = cont.getFactura();
+                
+                for (Factura e : lFac) {
+                    facId = e.getFacId();
+                }                
+                
                 int nuevaCap = 0;
                 for (int i = 1; i <= contBol; i++) {
                     if (!request.getParameter(i + "").equals("0")) {
                         nuevaCap = Integer.parseInt(request.getParameter("cap" + i)) - Integer.parseInt(request.getParameter(i + ""));
                         cont.modificarLocalidad(nuevaCap + "", request.getParameter("escId"), request.getParameter("locId" + i), request.getParameter("prog" + i));
+                        //escribir detalle
+                        cont.insertNewDetalle(facId+"", request.getParameter(i + ""), iva+"", totalCom+"");
                     }
                 }
 

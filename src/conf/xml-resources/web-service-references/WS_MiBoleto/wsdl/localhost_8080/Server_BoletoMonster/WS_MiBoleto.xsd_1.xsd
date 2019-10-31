@@ -32,11 +32,19 @@
 
 <xs:element name="espectaculoprograma" type="tns:espectaculoprograma"/>
 
+<xs:element name="factura" type="tns:factura"/>
+
 <xs:element name="formaPagoById" type="tns:formaPagoById"/>
 
 <xs:element name="formaPagoByIdResponse" type="tns:formaPagoByIdResponse"/>
 
 <xs:element name="formapago" type="tns:formapago"/>
+
+<xs:element name="getFactura" type="tns:getFactura"/>
+
+<xs:element name="getFacturaResponse" type="tns:getFacturaResponse"/>
+
+<xs:element name="insertNewDetalle" type="tns:insertNewDetalle"/>
 
 <xs:element name="listCliente" type="tns:listCliente"/>
 
@@ -277,6 +285,35 @@
 <xs:complexType name="localidadByIdResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:localidad" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertNewDetalle">
+<xs:sequence>
+<xs:element name="facId" type="xs:string" minOccurs="0"/>
+<xs:element name="bolId" type="xs:string" minOccurs="0"/>
+<xs:element name="iva" type="xs:string" minOccurs="0"/>
+<xs:element name="total" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFactura">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getFacturaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:factura" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="factura">
+<xs:sequence>
+<xs:element name="cliId" type="tns:cliente" minOccurs="0"/>
+<xs:element name="facFechaVenta" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="facId" type="xs:int" minOccurs="0"/>
+<xs:element name="fpId" type="tns:formapago" minOccurs="0"/>
+<xs:element name="venId" type="tns:vendedor" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

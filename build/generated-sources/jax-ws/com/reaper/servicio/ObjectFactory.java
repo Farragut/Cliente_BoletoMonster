@@ -40,9 +40,13 @@ public class ObjectFactory {
     private final static QName _EspectaculoCompletoResponse_QNAME = new QName("http://servicio.reaper.com/", "espectaculoCompletoResponse");
     private final static QName _Espectaculolocalidadescenario_QNAME = new QName("http://servicio.reaper.com/", "espectaculolocalidadescenario");
     private final static QName _Espectaculoprograma_QNAME = new QName("http://servicio.reaper.com/", "espectaculoprograma");
+    private final static QName _Factura_QNAME = new QName("http://servicio.reaper.com/", "factura");
     private final static QName _FormaPagoById_QNAME = new QName("http://servicio.reaper.com/", "formaPagoById");
     private final static QName _FormaPagoByIdResponse_QNAME = new QName("http://servicio.reaper.com/", "formaPagoByIdResponse");
     private final static QName _Formapago_QNAME = new QName("http://servicio.reaper.com/", "formapago");
+    private final static QName _GetFactura_QNAME = new QName("http://servicio.reaper.com/", "getFactura");
+    private final static QName _GetFacturaResponse_QNAME = new QName("http://servicio.reaper.com/", "getFacturaResponse");
+    private final static QName _InsertNewDetalle_QNAME = new QName("http://servicio.reaper.com/", "insertNewDetalle");
     private final static QName _ListCliente_QNAME = new QName("http://servicio.reaper.com/", "listCliente");
     private final static QName _ListClienteResponse_QNAME = new QName("http://servicio.reaper.com/", "listClienteResponse");
     private final static QName _ListFormaPago_QNAME = new QName("http://servicio.reaper.com/", "listFormaPago");
@@ -195,6 +199,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Factura }
+     * 
+     */
+    public Factura createFactura() {
+        return new Factura();
+    }
+
+    /**
      * Create an instance of {@link FormaPagoById }
      * 
      */
@@ -216,6 +228,30 @@ public class ObjectFactory {
      */
     public Formapago createFormapago() {
         return new Formapago();
+    }
+
+    /**
+     * Create an instance of {@link GetFactura }
+     * 
+     */
+    public GetFactura createGetFactura() {
+        return new GetFactura();
+    }
+
+    /**
+     * Create an instance of {@link GetFacturaResponse }
+     * 
+     */
+    public GetFacturaResponse createGetFacturaResponse() {
+        return new GetFacturaResponse();
+    }
+
+    /**
+     * Create an instance of {@link InsertNewDetalle }
+     * 
+     */
+    public InsertNewDetalle createInsertNewDetalle() {
+        return new InsertNewDetalle();
     }
 
     /**
@@ -491,6 +527,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Factura }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "factura")
+    public JAXBElement<Factura> createFactura(Factura value) {
+        return new JAXBElement<Factura>(_Factura_QNAME, Factura.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link FormaPagoById }{@code >}}
      * 
      */
@@ -515,6 +560,33 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "formapago")
     public JAXBElement<Formapago> createFormapago(Formapago value) {
         return new JAXBElement<Formapago>(_Formapago_QNAME, Formapago.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFactura }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "getFactura")
+    public JAXBElement<GetFactura> createGetFactura(GetFactura value) {
+        return new JAXBElement<GetFactura>(_GetFactura_QNAME, GetFactura.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFacturaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "getFacturaResponse")
+    public JAXBElement<GetFacturaResponse> createGetFacturaResponse(GetFacturaResponse value) {
+        return new JAXBElement<GetFacturaResponse>(_GetFacturaResponse_QNAME, GetFacturaResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertNewDetalle }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "insertNewDetalle")
+    public JAXBElement<InsertNewDetalle> createInsertNewDetalle(InsertNewDetalle value) {
+        return new JAXBElement<InsertNewDetalle>(_InsertNewDetalle_QNAME, InsertNewDetalle.class, null, value);
     }
 
     /**

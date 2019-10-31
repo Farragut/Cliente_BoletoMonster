@@ -10,6 +10,12 @@
 <message name="espectaculoCompletoResponse">
 <part name="parameters" element="tns:espectaculoCompletoResponse"/>
 </message>
+<message name="getFactura">
+<part name="parameters" element="tns:getFactura"/>
+</message>
+<message name="getFacturaResponse">
+<part name="parameters" element="tns:getFacturaResponse"/>
+</message>
 <message name="listFormaPago">
 <part name="parameters" element="tns:listFormaPago"/>
 </message>
@@ -82,10 +88,17 @@
 <message name="modificarLocalidad">
 <part name="parameters" element="tns:modificarLocalidad"/>
 </message>
+<message name="insertNewDetalle">
+<part name="parameters" element="tns:insertNewDetalle"/>
+</message>
 <portType name="WS_MiBoleto">
 <operation name="espectaculoCompleto">
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espectaculoCompletoRequest" message="tns:espectaculoCompleto"/>
 <output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/espectaculoCompletoResponse" message="tns:espectaculoCompletoResponse"/>
+</operation>
+<operation name="getFactura">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/getFacturaRequest" message="tns:getFactura"/>
+<output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/getFacturaResponse" message="tns:getFacturaResponse"/>
 </operation>
 <operation name="listFormaPago">
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/listFormaPagoRequest" message="tns:listFormaPago"/>
@@ -137,10 +150,22 @@
 <operation name="modificarLocalidad">
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/modificarLocalidad" message="tns:modificarLocalidad"/>
 </operation>
+<operation name="insertNewDetalle">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/insertNewDetalle" message="tns:insertNewDetalle"/>
+</operation>
 </portType>
 <binding name="WS_MiBoletoPortBinding" type="tns:WS_MiBoleto">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 <operation name="espectaculoCompleto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getFactura">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -255,6 +280,12 @@
 </output>
 </operation>
 <operation name="modificarLocalidad">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="insertNewDetalle">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
