@@ -4,6 +4,9 @@
     Author     : mfnav
 --%>
 
+<%@page import="javax.xml.datatype.DatatypeFactory"%>
+<%@page import="javax.xml.datatype.XMLGregorianCalendar"%>
+<%@page import="java.util.Date"%>
 <%@page import="com.reaper.servicio.Espectaculoprograma"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.reaper.servicio.Formapago"%>
@@ -29,7 +32,6 @@
             Cliente cli = new Cliente();
             Formapago fp = new Formapago();
             Localidad loc = new Localidad();
-            Espectaculoprograma espPro = new Espectaculoprograma();
 
             esp = cont.espectaculoById(Integer.parseInt(request.getParameter("espId")));
             esc = cont.escenarioById(Integer.parseInt(request.getParameter("escId")));
@@ -107,14 +109,33 @@
                             iva = 0.12f * totalCom;
                             subtotal = totalCom - iva;
                         %>
-                        <tr><td><span style="font-weight: bold;">IVA</span></td>  <td class="text-center">$ <%= df.format(iva) %></td></tr>
+                        <tr><td><span style="font-weight: bold;">IVA</span></td>  <td class="text-center">$ <%= df.format(iva)%></td></tr>
                         <tr><td><span style="font-weight: bold;">Subtotal</span></td>  <td class="text-center">$ <%= subtotal%></td></tr>
                         <tr><td><span style="font-weight: bold;">Total de Compra </span></td> <td class="text-center">$ <%= totalCom%></td></tr>
                     </table>
-                    <a href="#" class="btn btn-success">Confirmar Compra</a>
+
+                    <button onclick="myFunction()" class="btn btn-success" style="float: right;" >Confirmar Compra</button>
                 </div>
 
             </div>
         </div>
+
+        <script type="text/javascript">
+            function myFunction() {
+            <%
+//              cont.escribirFactura(request.getParameter("optCli"), request.getParameter("optfp"), request.getParameter("optVen"));
+                int nuevaCap = 0;
+                for (int i = 1; i <= contBol; i++) {
+                    if (!request.getParameter(i + "").equals("0")) {
+                        nuevaCap = Integer.parseInt(request.getParameter("cap" + i)) - Integer.parseInt(request.getParameter(i + ""));
+                        cont.modificarLocalidad(nuevaCap + "", request.getParameter("escId"), request.getParameter("locId" + i), request.getParameter("prog" + i));
+                    }
+                }
+
+            %>
+                alert("Su compra se ha completado satisfactoriamente!");
+            }
+        </script>                   
+
     </body>
 </html>

@@ -2,6 +2,7 @@
 package com.reaper.servicio;
 
 import java.util.List;
+import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -183,6 +184,24 @@ public interface WSMiBoleto {
 
     /**
      * 
+     * @param venId
+     * @param fpId
+     * @param cliId
+     */
+    @WebMethod
+    @Oneway
+    @RequestWrapper(localName = "escribirFactura", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.EscribirFactura")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/escribirFactura")
+    public void escribirFactura(
+        @WebParam(name = "cliId", targetNamespace = "")
+        String cliId,
+        @WebParam(name = "fpId", targetNamespace = "")
+        String fpId,
+        @WebParam(name = "venId", targetNamespace = "")
+        String venId);
+
+    /**
+     * 
      * @param fpId
      * @return
      *     returns com.reaper.servicio.Formapago
@@ -195,5 +214,26 @@ public interface WSMiBoleto {
     public Formapago formaPagoById(
         @WebParam(name = "fpId", targetNamespace = "")
         int fpId);
+
+    /**
+     * 
+     * @param escId
+     * @param bolRest
+     * @param espId
+     * @param locId
+     */
+    @WebMethod
+    @Oneway
+    @RequestWrapper(localName = "modificarLocalidad", targetNamespace = "http://servicio.reaper.com/", className = "com.reaper.servicio.ModificarLocalidad")
+    @Action(input = "http://servicio.reaper.com/WS_MiBoleto/modificarLocalidad")
+    public void modificarLocalidad(
+        @WebParam(name = "bolRest", targetNamespace = "")
+        String bolRest,
+        @WebParam(name = "escId", targetNamespace = "")
+        String escId,
+        @WebParam(name = "locId", targetNamespace = "")
+        String locId,
+        @WebParam(name = "espId", targetNamespace = "")
+        String espId);
 
 }

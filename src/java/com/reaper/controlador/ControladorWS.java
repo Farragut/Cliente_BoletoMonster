@@ -90,6 +90,20 @@ public class ControladorWS {
         com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
         return port.espProById(espProId);
     }
+
+    public static void escribirFactura(java.lang.String cliId, java.lang.String fpId, java.lang.String venId) {
+        com.reaper.servicio.WSMiBoleto_Service service = new com.reaper.servicio.WSMiBoleto_Service();
+        com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
+        port.escribirFactura(cliId, fpId, venId);
+    }
+
+    public static void modificarLocalidad(java.lang.String bolRest, java.lang.String escId, java.lang.String locId, java.lang.String espId) {
+        com.reaper.servicio.WSMiBoleto_Service service = new com.reaper.servicio.WSMiBoleto_Service();
+        com.reaper.servicio.WSMiBoleto port = service.getWSMiBoletoPort();
+        port.modificarLocalidad(bolRest, escId, locId, espId);
+    }
+
+    
     
     
 }

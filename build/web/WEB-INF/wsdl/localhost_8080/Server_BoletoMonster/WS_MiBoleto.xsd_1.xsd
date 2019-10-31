@@ -12,6 +12,8 @@
 
 <xs:element name="escenarioByIdResponse" type="tns:escenarioByIdResponse"/>
 
+<xs:element name="escribirFactura" type="tns:escribirFactura"/>
+
 <xs:element name="espProById" type="tns:espProById"/>
 
 <xs:element name="espProByIdResponse" type="tns:espProByIdResponse"/>
@@ -58,6 +60,8 @@
 
 <xs:element name="localidadCompletoResponse" type="tns:localidadCompletoResponse"/>
 
+<xs:element name="modificarLocalidad" type="tns:modificarLocalidad"/>
+
 <xs:element name="vendedor" type="tns:vendedor"/>
 
 <xs:element name="vendedorById" type="tns:vendedorById"/>
@@ -84,26 +88,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="escenarioById">
-<xs:sequence>
-<xs:element name="escId" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="escenarioByIdResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:escenario" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="escenario">
-<xs:sequence>
-<xs:element name="escCapacidad" type="xs:int"/>
-<xs:element name="escId" type="xs:int" minOccurs="0"/>
-<xs:element name="escNombre" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="vendedorById">
 <xs:sequence>
 <xs:element name="venId" type="xs:int"/>
@@ -121,6 +105,88 @@
 <xs:element name="venCedula" type="xs:string" minOccurs="0"/>
 <xs:element name="venId" type="xs:int" minOccurs="0"/>
 <xs:element name="venNombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="escribirFactura">
+<xs:sequence>
+<xs:element name="cliId" type="xs:string" minOccurs="0"/>
+<xs:element name="fpId" type="xs:string" minOccurs="0"/>
+<xs:element name="venId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="clienteById">
+<xs:sequence>
+<xs:element name="cliId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="clienteByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cliente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cliente">
+<xs:sequence>
+<xs:element name="cliCedula" type="xs:string" minOccurs="0"/>
+<xs:element name="cliDireccion" type="xs:string" minOccurs="0"/>
+<xs:element name="cliId" type="xs:int" minOccurs="0"/>
+<xs:element name="cliNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="cliTelefono" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espProById">
+<xs:sequence>
+<xs:element name="espProId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espProByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:espectaculoprograma" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectaculoprograma">
+<xs:sequence>
+<xs:element name="espEscDisponibilidad" type="xs:int"/>
+<xs:element name="espEscFecha" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="espEscHora" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="espEscId" type="xs:int" minOccurs="0"/>
+<xs:element name="espEscPrecio" type="xs:float"/>
+<xs:element name="espId" type="tns:espectaculo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarLocalidad">
+<xs:sequence>
+<xs:element name="bolRest" type="xs:string" minOccurs="0"/>
+<xs:element name="escId" type="xs:string" minOccurs="0"/>
+<xs:element name="locId" type="xs:string" minOccurs="0"/>
+<xs:element name="espId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="escenarioById">
+<xs:sequence>
+<xs:element name="escId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="escenarioByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:escenario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="escenario">
+<xs:sequence>
+<xs:element name="escCapacidad" type="xs:int"/>
+<xs:element name="escId" type="xs:int" minOccurs="0"/>
+<xs:element name="escNombre" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -172,17 +238,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="espectaculoprograma">
-<xs:sequence>
-<xs:element name="espEscDisponibilidad" type="xs:int"/>
-<xs:element name="espEscFecha" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="espEscHora" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="espEscId" type="xs:int" minOccurs="0"/>
-<xs:element name="espEscPrecio" type="xs:float"/>
-<xs:element name="espId" type="tns:espectaculo" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="localidad">
 <xs:sequence>
 <xs:element name="locId" type="xs:int" minOccurs="0"/>
@@ -210,16 +265,6 @@
 <xs:complexType name="listClienteResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:cliente" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="cliente">
-<xs:sequence>
-<xs:element name="cliCedula" type="xs:string" minOccurs="0"/>
-<xs:element name="cliDireccion" type="xs:string" minOccurs="0"/>
-<xs:element name="cliId" type="xs:int" minOccurs="0"/>
-<xs:element name="cliNombre" type="xs:string" minOccurs="0"/>
-<xs:element name="cliTelefono" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -252,30 +297,6 @@
 <xs:complexType name="listFormaPagoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:formapago" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="clienteById">
-<xs:sequence>
-<xs:element name="cliId" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="clienteByIdResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:cliente" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="espProById">
-<xs:sequence>
-<xs:element name="espProId" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="espProByIdResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:espectaculoprograma" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

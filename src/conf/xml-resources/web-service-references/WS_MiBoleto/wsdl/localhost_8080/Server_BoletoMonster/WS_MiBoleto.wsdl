@@ -70,11 +70,17 @@
 <message name="vendedorByIdResponse">
 <part name="parameters" element="tns:vendedorByIdResponse"/>
 </message>
+<message name="escribirFactura">
+<part name="parameters" element="tns:escribirFactura"/>
+</message>
 <message name="formaPagoById">
 <part name="parameters" element="tns:formaPagoById"/>
 </message>
 <message name="formaPagoByIdResponse">
 <part name="parameters" element="tns:formaPagoByIdResponse"/>
+</message>
+<message name="modificarLocalidad">
+<part name="parameters" element="tns:modificarLocalidad"/>
 </message>
 <portType name="WS_MiBoleto">
 <operation name="espectaculoCompleto">
@@ -121,9 +127,15 @@
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/vendedorByIdRequest" message="tns:vendedorById"/>
 <output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/vendedorByIdResponse" message="tns:vendedorByIdResponse"/>
 </operation>
+<operation name="escribirFactura">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/escribirFactura" message="tns:escribirFactura"/>
+</operation>
 <operation name="formaPagoById">
 <input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/formaPagoByIdRequest" message="tns:formaPagoById"/>
 <output wsam:Action="http://servicio.reaper.com/WS_MiBoleto/formaPagoByIdResponse" message="tns:formaPagoByIdResponse"/>
+</operation>
+<operation name="modificarLocalidad">
+<input wsam:Action="http://servicio.reaper.com/WS_MiBoleto/modificarLocalidad" message="tns:modificarLocalidad"/>
 </operation>
 </portType>
 <binding name="WS_MiBoletoPortBinding" type="tns:WS_MiBoleto">
@@ -227,6 +239,12 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="escribirFactura">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
 <operation name="formaPagoById">
 <soap:operation soapAction=""/>
 <input>
@@ -235,6 +253,12 @@
 <output>
 <soap:body use="literal"/>
 </output>
+</operation>
+<operation name="modificarLocalidad">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
 </operation>
 </binding>
 <service name="WS_MiBoleto">

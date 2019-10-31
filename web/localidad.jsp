@@ -87,20 +87,23 @@
                                             escId = e.getEscenario().getEscId();
                                 %>
                                 <tr>
-                                    <input value="<%= e.getLocalidad().getLocId() %>" type="number" id="locId<%= contTxt %>" name="locId<%= contTxt %>" hidden="">
-                                    <td class="text-center"><%= e.getLocalidad().getLocNombre()%></td>
-                                    <td class="text-center"> $ <%= e.getLocEscPrecio() + Float.parseFloat(request.getParameter("espPrecio"))%></td>
-                                    <input value="<%= e.getLocEscPrecio() + Float.parseFloat(request.getParameter("espPrecio")) %>" type="number" id="precioLoc<%= contTxt %>" name="precioLoc<%= contTxt %>" hidden="">
-                                    <td class="text-center"><%= e.getLocEscCapacidad()%></td>
-                                    <td class="text-center"><%= e.getEscenario().getEscNombre()%></td>
-                                    <td class="text-center"><%= e.getEspectaculoprograma().getEspEscFecha().getDay()%>/<%= e.getEspectaculoprograma().getEspEscFecha().getMonth()%>/<%= e.getEspectaculoprograma().getEspEscFecha().getYear()%></td>
-                                    <td class="text-center"><%= e.getEspectaculoprograma().getEspEscHora().getHour()%>:<%= e.getEspectaculoprograma().getEspEscHora().getMinute()%></td>
-                                    <td class="text-center"><input value="0" onKeyDown="return false" class="text-center form-control" type="number" min="0" max=<%= e.getLocEscCapacidad()%> id="<%= contTxt%>" name="<%= contTxt%>"></td>
-                                </tr>
-                                <%} }%>
+                            <input value="<%= e.getLocalidad().getLocId()%>" type="number" id="locId<%= contTxt%>" name="locId<%= contTxt%>" hidden="">
+                            <td class="text-center"><%= e.getLocalidad().getLocNombre()%></td>
+                            <td class="text-center"> $ <%= e.getLocEscPrecio() + Float.parseFloat(request.getParameter("espPrecio"))%></td>
+                            <input value="<%= e.getLocEscPrecio() + Float.parseFloat(request.getParameter("espPrecio"))%>" type="number" id="precioLoc<%= contTxt%>" name="precioLoc<%= contTxt%>" hidden="">
+                            <td class="text-center"><%= e.getLocEscCapacidad()%></td>
+                            <input value="<%= e.getLocEscCapacidad()%>" type="number" id="cap<%= contTxt%>" name="cap<%= contTxt%>" hidden="">
+                            <td class="text-center"><%= e.getEscenario().getEscNombre()%></td>
+                            <td class="text-center"><%= e.getEspectaculoprograma().getEspEscFecha().getDay()%>/<%= e.getEspectaculoprograma().getEspEscFecha().getMonth()%>/<%= e.getEspectaculoprograma().getEspEscFecha().getYear()%></td>
+                            <td class="text-center"><%= e.getEspectaculoprograma().getEspEscHora().getHour()%>:<%= e.getEspectaculoprograma().getEspEscHora().getMinute()%></td>
+                            <input value="<%= e.getEspectaculoprograma().getEspEscId() %>" type="number" id="prog<%= contTxt%>" name="prog<%= contTxt%>" hidden="">
+                            <td class="text-center"><input value="0" onKeyDown="return false" class="text-center form-control" type="number" min="0" max=<%= e.getLocEscCapacidad()%> id="<%= contTxt%>" name="<%= contTxt%>"></td>
+                            </tr>
+                            <%}
+                                    }%>
                             <input value="<%= contTxt%>" type="number" id="contTxt" name="contTxt" hidden="">
-                            <input value="<%= espId %>" type="number" id="espId" name="espId" hidden="">
-                            <input value="<%= escId %>" type="number" id="escId" name="escId" hidden="">
+                            <input value="<%= espId%>" type="number" id="espId" name="espId" hidden="">
+                            <input value="<%= escId%>" type="number" id="escId" name="escId" hidden="">
                             </tbody>
                         </table>
                         <a href="#" class="btn btn-success" style="margin-left: 45%;" data-toggle="modal" data-target="#exampleModal">Continuar</a>  

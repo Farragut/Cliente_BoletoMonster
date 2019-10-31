@@ -30,6 +30,7 @@ public class ObjectFactory {
     private final static QName _Escenario_QNAME = new QName("http://servicio.reaper.com/", "escenario");
     private final static QName _EscenarioById_QNAME = new QName("http://servicio.reaper.com/", "escenarioById");
     private final static QName _EscenarioByIdResponse_QNAME = new QName("http://servicio.reaper.com/", "escenarioByIdResponse");
+    private final static QName _EscribirFactura_QNAME = new QName("http://servicio.reaper.com/", "escribirFactura");
     private final static QName _EspProById_QNAME = new QName("http://servicio.reaper.com/", "espProById");
     private final static QName _EspProByIdResponse_QNAME = new QName("http://servicio.reaper.com/", "espProByIdResponse");
     private final static QName _Espectaculo_QNAME = new QName("http://servicio.reaper.com/", "espectaculo");
@@ -53,6 +54,7 @@ public class ObjectFactory {
     private final static QName _LocalidadByIdResponse_QNAME = new QName("http://servicio.reaper.com/", "localidadByIdResponse");
     private final static QName _LocalidadCompleto_QNAME = new QName("http://servicio.reaper.com/", "localidadCompleto");
     private final static QName _LocalidadCompletoResponse_QNAME = new QName("http://servicio.reaper.com/", "localidadCompletoResponse");
+    private final static QName _ModificarLocalidad_QNAME = new QName("http://servicio.reaper.com/", "modificarLocalidad");
     private final static QName _Vendedor_QNAME = new QName("http://servicio.reaper.com/", "vendedor");
     private final static QName _VendedorById_QNAME = new QName("http://servicio.reaper.com/", "vendedorById");
     private final static QName _VendedorByIdResponse_QNAME = new QName("http://servicio.reaper.com/", "vendedorByIdResponse");
@@ -110,6 +112,14 @@ public class ObjectFactory {
      */
     public EscenarioByIdResponse createEscenarioByIdResponse() {
         return new EscenarioByIdResponse();
+    }
+
+    /**
+     * Create an instance of {@link EscribirFactura }
+     * 
+     */
+    public EscribirFactura createEscribirFactura() {
+        return new EscribirFactura();
     }
 
     /**
@@ -297,6 +307,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ModificarLocalidad }
+     * 
+     */
+    public ModificarLocalidad createModificarLocalidad() {
+        return new ModificarLocalidad();
+    }
+
+    /**
      * Create an instance of {@link Vendedor }
      * 
      */
@@ -380,6 +398,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "escenarioByIdResponse")
     public JAXBElement<EscenarioByIdResponse> createEscenarioByIdResponse(EscenarioByIdResponse value) {
         return new JAXBElement<EscenarioByIdResponse>(_EscenarioByIdResponse_QNAME, EscenarioByIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EscribirFactura }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "escribirFactura")
+    public JAXBElement<EscribirFactura> createEscribirFactura(EscribirFactura value) {
+        return new JAXBElement<EscribirFactura>(_EscribirFactura_QNAME, EscribirFactura.class, null, value);
     }
 
     /**
@@ -587,6 +614,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "localidadCompletoResponse")
     public JAXBElement<LocalidadCompletoResponse> createLocalidadCompletoResponse(LocalidadCompletoResponse value) {
         return new JAXBElement<LocalidadCompletoResponse>(_LocalidadCompletoResponse_QNAME, LocalidadCompletoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarLocalidad }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio.reaper.com/", name = "modificarLocalidad")
+    public JAXBElement<ModificarLocalidad> createModificarLocalidad(ModificarLocalidad value) {
+        return new JAXBElement<ModificarLocalidad>(_ModificarLocalidad_QNAME, ModificarLocalidad.class, null, value);
     }
 
     /**
