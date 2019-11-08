@@ -4,6 +4,7 @@
     Author     : mfnav
 --%>
 
+<%@page import="com.reaper.servicio.Localidad"%>
 <%@page import="com.reaper.servicio.Cliente"%>
 <%@page import="com.reaper.servicio.Vendedor"%>
 <%@page import="com.reaper.servicio.Formapago"%>
@@ -63,15 +64,14 @@
                         </div>
                         </br>
                         </br>
-                        <table class="table table-hover table-bordered">
+                        <input type="button" id="btnNuLoc" class="btn btn-primary" value="Nueva Localidad" onclick="appendToTable()">
+                        <br>
+                        <br>
+                        <table class="table table-hover table-bordered" id="mytable">
                             <thead>
                                 <tr>
                                     <th class="text-center">Localidad</th>
-                                    <th class="text-center">Precio</th>
-                                    <th class="text-center">Disponibles</th>
-                                    <th class="text-center">Escenario</th>
-                                    <th class="text-center">Fecha</th>
-                                    <th class="text-center">Hora</th>
+                                    <th class="text-center">Disponible</th>
                                     <th class="text-center">Cantidad</th>
                                 </tr>
                             </thead>
@@ -87,21 +87,18 @@
                                             escId = e.getEscenario().getEscId();
                                 %>
                                 <tr>
-                            <input value="<%= e.getLocalidad().getLocId()%>" type="number" id="locId<%= contTxt%>" name="locId<%= contTxt%>" hidden="">
-                            <td class="text-center"><%= e.getLocalidad().getLocNombre()%></td>
-                            <td class="text-center"> $ <%= e.getLocEscPrecio() + Float.parseFloat(request.getParameter("espPrecio"))%></td>
-                            <input value="<%= e.getLocEscPrecio() + Float.parseFloat(request.getParameter("espPrecio"))%>" type="number" id="precioLoc<%= contTxt%>" name="precioLoc<%= contTxt%>" hidden="">
-                            <td class="text-center"><%= e.getLocEscCapacidad()%></td>
+                            <!--<input value="<%= e.getLocalidad().getLocId()%>" type="number" id="locId<%= contTxt%>" name="locId<%= contTxt%>" >-->
+<!--                            <td class="text-center"><%= e.getLocalidad().getLocNombre()%></td>
+                            <td class="text-center"> $ <%= e.getLocEscPrecio() + Float.parseFloat(request.getParameter("espPrecio"))%></td>-->
+                            <input value="<%= e.getLocEscPrecio() + Float.parseFloat(request.getParameter("espPrecio"))%>" type="number" id="subLoc<%= contTxt%>" name="subLoc<%= contTxt%>" hidden="">
+                            <!--<td class="text-center"><%= e.getLocEscCapacidad()%></td>-->
                             <input value="<%= e.getLocEscCapacidad()%>" type="number" id="cap<%= contTxt%>" name="cap<%= contTxt%>" hidden="">
-                            <td class="text-center"><%= e.getEscenario().getEscNombre()%></td>
-                            <td class="text-center"><%= e.getEspectaculoprograma().getEspEscFecha().getDay()%>/<%= e.getEspectaculoprograma().getEspEscFecha().getMonth()%>/<%= e.getEspectaculoprograma().getEspEscFecha().getYear()%></td>
-                            <td class="text-center"><%= e.getEspectaculoprograma().getEspEscHora().getHour()%>:<%= e.getEspectaculoprograma().getEspEscHora().getMinute()%></td>
-                            <input value="<%= e.getEspectaculoprograma().getEspEscId() %>" type="number" id="prog<%= contTxt%>" name="prog<%= contTxt%>" hidden="">
-                            <td class="text-center"><input value="0" onKeyDown="return false" class="text-center form-control" type="number" min="0" max=<%= e.getLocEscCapacidad()%> id="<%= contTxt%>" name="<%= contTxt%>"></td>
+                            <input value="<%= e.getEspectaculoprograma().getEspEscId()%>" type="number" id="prog<%= contTxt%>" name="prog<%= contTxt%>" hidden="" >
+                            <!--<td class="text-center"><input value="0" onKeyDown="return false" class="text-center form-control" type="number" min="0" max=<%= e.getLocEscCapacidad()%> id="<%= contTxt%>" name="<%= contTxt%>"></td>-->
                             </tr>
                             <%}
-                                    }%>
-                            <input value="<%= contTxt%>" type="number" id="contTxt" name="contTxt" hidden="">
+                                }%>
+                            <input value="0" type="number" id="contTxt" name="contTxt" hidden="" >
                             <input value="<%= espId%>" type="number" id="espId" name="espId" hidden="">
                             <input value="<%= escId%>" type="number" id="escId" name="escId" hidden="">
                             </tbody>
@@ -147,12 +144,118 @@
                     </div>
                 </div>
             </div>
+
+
+
+            <!-- Modal -->
+
+            <div class="modal fade" id="localidadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Asignar localidad</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <label>Localidad</label>
+                            <br>
+                            <select id="optloc" name="optloc" class="form-control">
+                                <option value="" disabled selected>Seleccione la localidad</option>
+                                <%
+                                    for (Espectaculolocalidadescenario e : datosEE) {
+                                %>
+                                <option value=<%= e.getLocalidad().getLocId()%>><%= e.getLocalidad().getLocNombre()%></option>
+                                <% }%>
+                            </select>
+                            <br>
+                            <label>Cantidad</label>
+                            <br>
+                            <input value="0" class="text-center form-control" type="number" min="0" max="100" id="cantIn" name="cantIn">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <input type="button" class="btn btn-primary" value="Seleccionar" onclick="appendToTable()">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
 
         <script type="text/javascript">
+            var cont = 0;
+
+            var selec = [0, 0, 0];
+
             $('#exampleModal').on('shown.bs.modal', function () {
                 $('#myInput').trigger('focus')
             })
+
+            $('#localidadModal').on('shown.bs.modal', function () {
+                $('#btnNew').trigger('focus')
+            })
+
+            function appendToTable() {
+                if (cont >= 3) {
+                    document.getElementById("btnNuLoc").setAttribute("hidden", "true")
+                } else if (cont < 3) {
+                    cont = cont + 1;
+                    console.log(cont);
+                    document.getElementById("contTxt").value = cont;
+                    var tr = "<tr>\n\
+<td><select id=\"" + cont + "sel\" onchange=\"getval(this);\" class=\"form-control\"><option value=\"\" disabled selected>Seleccione la localidad</option><option id=\"optSel1\" value=\"1\">VIP</option><option id=\"optSel2\" value=\"2\">Palco</option><option id=\"optSel3\" value=\"4\">Golden Box</option></select></td>\n\
+<td class=\"text-center\"><input class=\"text-center form-control\" type=\"text\" readonly id=\"capacidadT" + cont + "\" ></td>\n\
+<td><input value=\"0\" class=\"text-center form-control\" type=\"number\" min=\"0\" max=\"0\" id=\"" + cont + "\" name=\"" + cont + "\" >\n\
+<input value=\"\" type=\"number\" id=\"locId" + cont + "\" name=\"locId" + cont + "\" hidden=\"\">\n\
+<input value=\"0\" type=\"number\" id=\"precioLoc" + cont + "\" name=\"precioLoc" + cont + "\" hidden=\"\" >\n\
+</tr>"
+                    $('#mytable').append(tr);
+                }
+            }
+
+
+            function getval(sel)
+            {
+                var str = sel.id;
+                var res = str.split("sel", 1);
+                selec[res - 1] = sel.value;
+
+                console.log(selec);
+
+                for (x = 0; x < selec.length; x++) {
+                    if (sel.value == selec[x] && (res - 1) != x) {
+                        sel.value = "";
+                        selec[res - 1] = "0";
+                        if (sel.value == '4')
+                        {
+                            document.getElementById("capacidadT3").value = "";
+                            document.getElementById("3").value = "0";
+                        } else {
+                            document.getElementById("capacidadT" + res).value = "";
+                            document.getElementById("" + res).value = "0";
+                        }
+                        alert("Ya se ha elegido esa localidad!!");
+
+                        break;
+                    } else {
+                        var capacidad = document.getElementById(res);
+                        document.getElementById("locId" + res).value = sel.value;
+
+
+                        if (sel.value == '4')
+                        {
+                            document.getElementById("precioLoc" + res).value = document.getElementById("subLoc3").value;
+                            document.getElementById("capacidadT" + res).value = document.getElementById("cap3").value;
+                            capacidad.setAttribute("max", document.getElementById("cap3").value);
+                        } else {
+                            document.getElementById("precioLoc" + res).value = document.getElementById("subLoc" + sel.value).value;
+                            document.getElementById("capacidadT" + res).value = document.getElementById("cap" + sel.value).value;
+                            capacidad.setAttribute("max", document.getElementById("cap" + sel.value).value);
+                        }
+                    }
+                }
+            }
         </script>
 
     </body>

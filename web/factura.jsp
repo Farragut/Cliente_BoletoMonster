@@ -87,6 +87,7 @@
                         <%
                             float totalCom = 0;
                             int contBol = Integer.parseInt(request.getParameter("contTxt"));
+
                             for (int i = 1; i <= contBol; i++) {
                                 if (!request.getParameter(i + "").equals("0")) {
                                     loc = cont.localidadById(Integer.parseInt(request.getParameter("locId" + i)));
@@ -128,25 +129,24 @@
                 int facId = 0;
                 cont.escribirFactura(request.getParameter("optCli"), request.getParameter("optfp"), request.getParameter("optVen"));
                 List<Factura> lFac = cont.getFactura();
-                
+
                 for (Factura e : lFac) {
                     facId = e.getFacId();
-                }                
-                
+                }
+
                 int nuevaCap = 0;
                 for (int i = 1; i <= contBol; i++) {
                     if (!request.getParameter(i + "").equals("0")) {
                         nuevaCap = Integer.parseInt(request.getParameter("cap" + i)) - Integer.parseInt(request.getParameter(i + ""));
                         cont.modificarLocalidad(nuevaCap + "", request.getParameter("escId"), request.getParameter("locId" + i), request.getParameter("prog" + i));
                         //escribir detalle
-                        cont.insertNewDetalle(facId+"", request.getParameter(i + ""), iva+"", totalCom+"");
+                        cont.insertNewDetalle(facId + "", request.getParameter(i + ""), iva + "", totalCom + "");
                     }
                 }
 
             %>
                 alert("Su compra se ha completado satisfactoriamente!");
             }
-        </script>                   
-
+        </script>     
     </body>
 </html>

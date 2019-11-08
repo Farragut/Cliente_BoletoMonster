@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 27/10/2019, 15:13:26
-    Author     : mfnav
---%>
-
 <%@page import="com.reaper.controlador.ControladorWS"%>
 <%@page import="com.reaper.servicio.Espectaculolocalidadescenario"%>
 <%@page import="javax.xml.datatype.DatatypeFactory"%>

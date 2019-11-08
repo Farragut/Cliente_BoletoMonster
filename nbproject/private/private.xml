@@ -7,5 +7,15 @@
             <file>file:/C:/Users/mfnav/Desktop/SOAP_MiBoleto/Cliente_BoletoMonster/web/factura.jsp</file>
             <file>file:/C:/Users/mfnav/Desktop/SOAP_MiBoleto/Cliente_BoletoMonster/src/java/com/reaper/controlador/ControladorWS.java</file>
         </group>
+        <group name="SOAP_MiBoleto">
+            <file>file:/C:/Users/mfnav/Desktop/SOAP_MiBoleto/Cliente_BoletoMonster/web/factura.jsp</file>
+            <file>file:/C:/Users/mfnav/Desktop/SOAP_MiBoleto/Cliente_BoletoMonster/src/java/com/reaper/controlador/ControladorWS.java</file>
+            <file>file:/C:/Users/mfnav/Desktop/SOAP_MiBoleto/Cliente_BoletoMonster/web/index.jsp</file>
+            <file>file:/C:/Users/mfnav/Desktop/SOAP_MiBoleto/Cliente_BoletoMonster/web/localidad.jsp</file>
+        </group>
+        <group name="SOAP_Group">
+            <file>file:/C:/Users/mfnav/Desktop/SOAP_MiBoleto/Cliente_BoletoMonster/web/factura.jsp</file>
+            <file>file:/C:/Users/mfnav/Desktop/SOAP_MiBoleto/Cliente_BoletoMonster/web/localidad.jsp</file>
+        </group>
     </open-files>
 </project-private>
